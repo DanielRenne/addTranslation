@@ -22,6 +22,11 @@ func main() {
 	err := readFileAndParse("yandex.json", &settings)
 	if err != nil {
 		fmt.Println("Error reading yandex.json.  " + err.Error())
+		fmt.Println("A new yandex.json file has been created for you to add your API Key.  Please update.")
+		var yf yandexFile
+		yf.Languages = append(yf.Languages, "es")
+		yf.Path = "web/pages"
+		parseAndWriteFile("yandex.json", yf, 0755)
 		return
 	}
 
